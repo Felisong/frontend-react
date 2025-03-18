@@ -1,6 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
-import { Skills } from "../../shared/types/types";
+import { Fragment, useEffect, useState } from "react";
+import type { Skills } from "../../shared/types/types";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Home() {
   const [skills, setSkills] = useState<Skills[]>([]);
@@ -25,6 +26,18 @@ export default function Home() {
     }
   }
 
+  const DisplaySkills = skills.map((skill: Skills) => {
+    if (loading) {
+      return <p>loading</p>;
+    }
+    return (
+      <div key={uuidv4()}>
+        <h1>{skill.skill}</h1>
+        <p>{skill.category}</p>
+      </div>
+    );
+  });
+
   useEffect(() => {
     getSkills();
   }, []);
@@ -34,8 +47,9 @@ export default function Home() {
   }, [skills]);
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="">
       <p>hello!</p>
+      {DisplaySkills}
     </div>
   );
 }
