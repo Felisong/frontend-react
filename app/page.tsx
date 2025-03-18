@@ -1,5 +1,5 @@
 "use client";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import type { Skills } from "../../shared/types/types";
 import { v4 as uuidv4 } from "uuid";
 
@@ -20,7 +20,7 @@ export default function Home() {
       setSkills(data.skills);
       setLoading(false);
     } catch (error) {
-      console.error("Unable to fetch skills.");
+      console.error("Unable to fetch skills.", error);
       setSkills([]);
       setLoading(false);
     }
