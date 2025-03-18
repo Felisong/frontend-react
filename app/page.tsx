@@ -1,8 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
+import { Skills } from "../../shared/types/types";
 
 export default function Home() {
-  const [skills, setSkills] = useState<any>([]);
+  const [skills, setSkills] = useState<Skills[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   // Function to fetch skills
   async function getSkills() {
@@ -15,9 +17,11 @@ export default function Home() {
 
       const data = await res.json();
       setSkills(data.skills);
+      setLoading(false);
     } catch (error) {
       console.error("Unable to fetch skills.");
-      setSkills({ success: false, message: "Unable to fetch skills." });
+      setSkills([]);
+      setLoading(false);
     }
   }
 
