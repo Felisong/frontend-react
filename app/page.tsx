@@ -1,6 +1,6 @@
 "use client";
+import { Skills } from "@/types";
 import { useEffect, useState } from "react";
-import type { Skills } from "../../shared/types/types";
 
 export default function Home() {
   const [skills, setSkills] = useState<Skills[]>([]);
