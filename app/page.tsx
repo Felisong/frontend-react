@@ -25,13 +25,14 @@ export default function Home() {
       setLoading(false);
     }
   }
+  console.log(`skills: ${skills}`);
 
   const DisplaySkills = skills.map((skill: Skills) => {
     if (loading) {
       return <p>loading</p>;
     }
     return (
-      <div key={uuidv4()}>
+      <div key={skill._id}>
         <h1>{skill.skill}</h1>
         <p>{skill.category}</p>
       </div>
