@@ -9,10 +9,17 @@ export default function Home() {
   const [skills, setSkills] = useState<Skills[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
+  // should work.
   // Function to fetch skills
+  console.log(`${baseURL}/skills`);
   async function getSkills() {
     try {
-      const res = await fetch(`${baseURL}/skills`);
+      const res = await fetch(`${baseURL}/skills`, {
+        mode: "cors", // Explicitly enable CORS
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (!res.ok) {
         throw new Error("Unable to fetch skills.");
