@@ -1,29 +1,24 @@
 "use client";
 
+import Hamburger from "./header-components/Hamburger";
+import NavList from "./header-components/NavList";
+
 export default function NavigationBar() {
-  const NavigationSelect = [
+  const navigationSelect = [
     { name: "Home", url: "" },
     { name: "About Me", url: "/about-me" },
     { name: "Prior Works", url: "/prior-works" },
     { name: "Resume", url: "/resume" },
   ];
 
-  function NavList() {
-    return (
-      <>
-        {NavigationSelect.map((listItem: { name: string; url: string }) => (
-          <li className="mx-8 text-xl" key={listItem.name}>
-            <a href={listItem.url}>{listItem.name}</a>
-          </li>
-        ))}
-      </>
-    );
-  }
   return (
-    <header className="bg-vibrant-red p-8 font-header">
-      <ul className="flex">
-        <NavList></NavList>
+    <header className="bg-vibrant-red p-6 font-header">
+      <ul className="hidden md:flex justify-start">
+        <NavList navigationSelect={navigationSelect}></NavList>
       </ul>
+      <div className="flex justify-end md:hidden">
+        <Hamburger navigationSelect={navigationSelect}></Hamburger>
+      </div>
     </header>
   );
 }
