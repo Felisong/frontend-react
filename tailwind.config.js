@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontSize: {
-        h1: ["2.5rem", { lineHeight: "1.2" }],
-        primary: ["1.2rem"],
+        h1: ["2rem", { lineHeight: "1.1" }],
+        primary: ["1.3rem"],
       },
       colors: {
         "vibrant-red": "#AE1B55",
@@ -15,6 +15,7 @@ export default {
         "light-pink": "#FEBCD7",
         "dark-pink": "#95506B",
         "dark-blue": "#001A2E",
+        "supplement-white": "#D3C99A",
       },
       fontFamily: {
         header: ["Mitr", "sans-serif"],

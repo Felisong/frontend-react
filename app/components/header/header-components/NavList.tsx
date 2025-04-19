@@ -9,7 +9,9 @@ export default function NavList({
     <>
       {navigationSelect.map((listItem) => (
         <li className="mx-8 text-xl" key={listItem.name}>
-          <a href={listItem.url}>{listItem.name}</a>
+          <a className="hover:text-bright-yellow" href={listItem.url}>
+            {listItem.name}
+          </a>
         </li>
       ))}
     </>

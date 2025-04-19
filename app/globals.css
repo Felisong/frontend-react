@@ -9,6 +9,13 @@
   }
 
   p {
-    @apply text-primary;
+    @apply text-primary text-supplement-white;
+  }
+
+  a {
+    @apply text-primary-white;
+  }
+  a:hover {
+    @apply text-vibrant-red;
   }
 }

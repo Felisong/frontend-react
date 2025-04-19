@@ -1,17 +1,19 @@
 "use client";
 
+import ArrowDown from "../general/ArrowDown";
 import BackDrop from "../general/BackDrop";
 import SpaceSheepLogo from "./SpaceSheepLogo";
 
 export default function HeroSection() {
   return (
     <>
-      <h1 className="font-header text-center mx-4 my-8">
+      <h1 className="font-header text-center mx-8 my-4">
         I am Carolina Henriquez Silva!
       </h1>
       <SpaceSheepLogo></SpaceSheepLogo>
-      <section className="text-center">
+      <section className="flex flex-col justify-center items-center">
         <BackDrop></BackDrop>
+        <ArrowDown></ArrowDown>
       </section>
     </>
   );
