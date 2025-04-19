@@ -3,7 +3,7 @@
 export default function Home() {
   return (
     <div>
-      <h2>Wow MEow!</h2>
+      <h2 className="text-header">Wow MEow!</h2>
     </div>
   );
 }

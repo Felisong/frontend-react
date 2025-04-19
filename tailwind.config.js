@@ -10,6 +10,7 @@ export default {
         "bright-yellow": "#FFCE74",
         "light-pink": "#FEBCD7",
         "dark-pink": "#95506B",
+        "dark-blue": "#001A2E",
       },
       fontFamily: {
         header: ["Mitr", "sans-serif"],
