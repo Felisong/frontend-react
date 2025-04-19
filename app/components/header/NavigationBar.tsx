@@ -12,7 +12,7 @@ export default function NavigationBar() {
   ];
 
   return (
-    <header className="bg-vibrant-red p-6 font-header">
+    <header className="bg-vibrant-red px-10 py-3 h-fi font-header">
       <ul className="hidden md:flex justify-start">
         <NavList navigationSelect={navigationSelect}></NavList>
       </ul>

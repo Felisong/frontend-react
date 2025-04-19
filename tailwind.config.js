@@ -3,6 +3,10 @@ export default {
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontSize: {
+        h1: ["2.5rem", { lineHeight: "1.2" }],
+        primary: ["1.2rem"],
+      },
       colors: {
         "vibrant-red": "#AE1B55",
         "planet-shadow-red": "#341620",

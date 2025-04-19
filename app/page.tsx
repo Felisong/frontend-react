@@ -1,9 +1,11 @@
 "use client";
 
+import HeroSection from "./components/hero/HeroSection";
+
 export default function Home() {
   return (
     <div>
-      <h2 className="text-header">Wow MEow!</h2>
+      <HeroSection></HeroSection>
     </div>
   );
 }
