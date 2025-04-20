@@ -1,14 +1,26 @@
 "use client";
 
+import { useEffect } from "react";
 import Hamburger from "./header-components/Hamburger";
 import NavList from "./header-components/NavList";
+import { usePathname } from "next/navigation";
 
 export default function NavigationBar() {
+  const currentPath = usePathname();
+
   const navigationSelect = [
-    { name: "Home", url: "" },
-    { name: "About Me", url: "/about-me" },
-    { name: "Prior Works", url: "/prior-works" },
-    { name: "Resume", url: "/resume" },
+    { name: "Home", url: "/", currentPage: currentPath === "/" },
+    {
+      name: "About Me",
+      url: "/about-me",
+      currentPage: currentPath === "/about-me",
+    },
+    {
+      name: "Prior Works",
+      url: "/prior-works",
+      currentPage: currentPath === "/prior-works",
+    },
+    { name: "Resume", url: "/resume", currentPage: currentPath === "/resume" },
   ];
 
   return (

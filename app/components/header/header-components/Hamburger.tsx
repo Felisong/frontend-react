@@ -6,7 +6,7 @@ import NavList from "./NavList";
 export default function Hamburger({
   navigationSelect,
 }: {
-  navigationSelect: { name: string; url: string }[];
+  navigationSelect: { name: string; url: string; currentPage: boolean }[];
 }) {
   const [showMenu, setShowMenu] = useState(false);
   const handleClick = () => {

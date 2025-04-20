@@ -11,8 +11,8 @@ export default function ArrowDown() {
       <path
         d="M3.5 3.49225L19 15L34 3.49225"
         stroke="#FFCE74"
-        stroke-width="6"
-        stroke-linecap="round"
+        strokeWidth="6"
+        strokeLinecap="round"
       />
     </svg>
   );
