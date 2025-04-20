@@ -11,7 +11,7 @@ export default function HeroSection() {
         I am Carolina Henriquez Silva!
       </h1>
       <SpaceSheepLogo></SpaceSheepLogo>
-      <section className="flex flex-col justify-center items-center">
+      <section className="flex flex-col justify-center items-center mb-8">
         <BackDrop></BackDrop>
         <ArrowDown></ArrowDown>
       </section>
