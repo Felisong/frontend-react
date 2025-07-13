@@ -1,5 +1,4 @@
 // hooks/useSkills.ts
-import { Skills } from "@/types";
 import { useEffect, useState } from "react";
 const baseURL =
   process.env.NODE_ENV === "development"
