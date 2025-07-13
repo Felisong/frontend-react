@@ -2,10 +2,10 @@
 
 import useSkills from "@/app/hook/useSkills";
 import SkillsCarousel from "../skills/SkillsCarousel";
+import { useState } from "react";
 
 export default function HomeSkillsSection() {
   const { skills, loading } = useSkills();
-
   return (
     <main className="text-center">
       <h1>My Skills</h1>
