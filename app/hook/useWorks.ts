@@ -1,4 +1,5 @@
 // hooks/useSkills.ts
+import { PriorWorksModel } from "@/types";
 import { useEffect, useState } from "react";
 const baseURL =
   process.env.NODE_ENV === "development"
@@ -7,7 +8,7 @@ const baseURL =
 
 export default function useWorks() {
   //TODO: change to work set type
-  const [works, setWorks] = useState<any[]>([]);
+  const [works, setWorks] = useState<PriorWorksModel[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
