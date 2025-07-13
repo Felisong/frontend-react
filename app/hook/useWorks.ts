@@ -16,7 +16,7 @@ export default function useWorks() {
         const res = await fetch(`${baseURL}/priorWorks`);
         if (!res.ok) throw new Error("Unable to fetch skills.");
         const data = await res.json();
-        setWorks(data.works);
+        setWorks(data.priorWorks);
       } catch (err: any) {
         console.error("Fetch error:", err.message);
         setWorks([]);
@@ -25,7 +25,7 @@ export default function useWorks() {
       }
     }
     getWorks();
-  }, [baseURL]);
+  }, []);
 
   return { works, loading };
 }

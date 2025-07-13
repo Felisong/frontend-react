@@ -26,7 +26,7 @@ export default function useSkills() {
     }
 
     getSkills();
-  }, [baseURL]);
+  }, []);
 
   return { skills, loading };
 }
