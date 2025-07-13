@@ -7,7 +7,6 @@ const baseURL =
     : process.env.NEXT_PUBLIC_BASE_URL_PROD;
 
 export default function useWorks() {
-  //TODO: change to work set type
   const [works, setWorks] = useState<PriorWorksModel[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -25,7 +24,6 @@ export default function useWorks() {
         setLoading(false);
       }
     }
-
     getWorks();
   }, [baseURL]);
 
