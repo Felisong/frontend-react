@@ -8,17 +8,23 @@ const baseURL =
 
 export default function useWorks() {
   const [works, setWorks] = useState<PriorWorksModel[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function getWorks() {
       try {
         const res = await fetch(`${baseURL}/priorWorks`);
         if (!res.ok) throw new Error("Unable to fetch skills.");
-        const data = await res.json();
-        setWorks(data.priorWorks);
-      } catch (err: any) {
-        console.error("Fetch error:", err.message);
+        const data: {
+          priorWorks?: PriorWorksModel[];
+          status: number;
+          message: string;
+        } = await res.json();
+        if (data.priorWorks) {
+          setWorks(data.priorWorks);
+        }
+      } catch (err) {
+        console.error("Fetch error:", err);
         setWorks([]);
       } finally {
         setLoading(false);
