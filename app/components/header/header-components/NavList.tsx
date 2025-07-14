@@ -8,7 +8,7 @@ export default function NavList({
   return (
     <>
       {navigationSelect.map((listItem) => (
-        <li className="mx-8 text-xl" key={listItem.name}>
+        <li className="mx-8 text-xl list-none" key={listItem.name}>
           <a
             className={`hover:text-bright-yellow ${
               listItem.currentPage ? "text-supplement-white" : ""
