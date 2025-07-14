@@ -4,6 +4,7 @@ import { PriorWorksModel, Skills } from "@/types";
 import useWorks from "../hook/useWorks";
 import { useEffect, useState, use } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function WorkDetailPage({
   params,
@@ -70,7 +71,7 @@ export default function WorkDetailPage({
         <ul className="md:flex md:flex-wrap md:w-9/10 mx-auto justify-center">
           {currentWork.skills.map((skill: Skills) => (
             <li className="mx-4 " key={skill.skill}>
-              <a href={skill.url}>{skill.skill} </a>
+              <Link href={skill.url}>{skill.skill} </Link>
             </li>
           ))}
         </ul>
