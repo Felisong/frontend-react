@@ -1,10 +1,11 @@
 "use client";
 
+import Toast from "@/app/components/general/Toast";
 import { useToast } from "./toastContext";
 
 const ToastWrapper = () => {
   const { showToast, toastData } = useToast();
-  return showToast ? <div> Toast here, feed toast data to display </div> : null;
+  return showToast ? <Toast {...toastData} /> : null;
 };
 
 export default ToastWrapper;
