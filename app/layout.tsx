@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavigationBar from "./components/header/NavigationBar";
+import Footer from "./components/footer/Footer";
+import { ToastProvider, useToast } from "./utils/context/toastContext";
+import ToastWrapper from "./utils/context/ToastWrapper";
 // here i would fetch if the user is signed in if they are
 
 export const metadata: Metadata = {
@@ -13,13 +16,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // this is how I will get the Toast to show up
+  // modify the div later to be a div, that will mark itself as false after a bit
+
+  // TODO: create toast component that will  intake toastData and change display depending on the data, make sure its fixed near the top to give confirmations or rejections.
+  // Figure out why its failing for the components and use state vs server side stuff
+
   return (
     <html lang="en">
       <body
         className={`bg-dark-blue text-primary-white font-primary antialiased`}
       >
-        <NavigationBar></NavigationBar>
-        {children}
+        <ToastProvider>
+          <ToastWrapper />
+          <NavigationBar></NavigationBar>
+          {children}
+          <Footer />
+        </ToastProvider>
       </body>
     </html>
   );

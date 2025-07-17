@@ -1,0 +1,40 @@
+import { createContext, ReactNode, useContext, useState } from "react";
+
+type toastData = {
+  message: string;
+  isError: boolean;
+};
+type toastContextType = {
+  showToast: boolean;
+  toastData: toastData;
+  triggerToast: (data: toastData) => void;
+};
+
+const toastContext = createContext<toastContextType | undefined>(undefined);
+
+export const useToast = () => {
+  const context = useContext(toastContext);
+  if (!context) throw new Error("useToast must be used within ToastProvider");
+  return context;
+};
+
+export const ToastProvider = ({ children }: { children: ReactNode }) => {
+  const [showToast, setShowToast] = useState<boolean>(false);
+  const [toastData, setToastData] = useState<toastData>({
+    message: "",
+    isError: false,
+  });
+
+  // this will replace the data and make the toast display
+  const triggerToast = (data: toastData) => {
+    setToastData(data);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  };
+
+  return (
+    <toastContext.Provider value={{ showToast, toastData, triggerToast }}>
+      {children}
+    </toastContext.Provider>
+  );
+};
