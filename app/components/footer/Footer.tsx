@@ -22,9 +22,17 @@ export default function Footer() {
     message: "",
     contact_number: "",
   });
+  const [formErrors, setFormErrors] = useState<FormModel>({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+    contact_number: "",
+  });
   const handleValueChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    // updated values... import the file.function to do verification here!
     setFormInputs({
       ...formInputs,
       [e.target.id]: e.target.value,
