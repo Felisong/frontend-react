@@ -8,7 +8,7 @@ const ToastWrapper = () => {
   const [fadeIn, setFadeIn] = useState<boolean>(false);
 
   useEffect(() => {
-    showToast ? setFadeIn(true) : setFadeIn(false);
+    setFadeIn(showToast);
   }, [showToast]);
   return (
     <div

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AbsoluteFooterBg from "./AbsoluteFooterBg";
 import { sendContactForm } from "@/app/utils/sendContactForm";
 import { useToast } from "@/app/utils/context/toast/toastContext";
@@ -14,8 +14,7 @@ export type FormModel = {
 };
 export default function Footer() {
   const [submitMessage, setSubmitMessage] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
-  const { triggerToast, showToast } = useToast();
+  const { triggerToast } = useToast();
   const [formInputs, setFormInputs] = useState<FormModel>({
     name: "",
     email: "",
@@ -43,6 +42,7 @@ export default function Footer() {
     e.preventDefault();
     const formData = { ...formInputs };
     try {
+      setSubmitMessage("Submitting message...");
       await sendContactForm(formData);
       const successMsg = "Message sent!";
       setSubmitMessage(successMsg);
@@ -55,7 +55,10 @@ export default function Footer() {
       });
       triggerToast({ message: successMsg, isError: false, show: true });
     } catch (err) {
-      setSubmitMessage("Failed to send message, please try again!");
+      console.error(err);
+      const failureMessage = "Failed to send message, please try again!";
+      setSubmitMessage(failureMessage);
+      triggerToast({ message: failureMessage, isError: true, show: true });
     }
   };
   console.log(`form error: `, formErrors);
@@ -125,6 +128,9 @@ export default function Footer() {
             <button type="submit" className="text-2xl">
               Submit
             </button>
+            <p className="text-primary-white text-sm">
+              {submitMessage ? submitMessage : ""}
+            </p>
           </form>
         </section>
       </div>

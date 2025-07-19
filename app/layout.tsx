@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import NavigationBar from "./components/header/NavigationBar";
 import Footer from "./components/footer/Footer";
-import { ToastProvider, useToast } from "./utils/context/toast/toastContext";
+import { ToastProvider } from "./utils/context/toast/toastContext";
 import ToastWrapper from "./utils/context/toast/ToastWrapper";
 // here i would fetch if the user is signed in if they are
 
