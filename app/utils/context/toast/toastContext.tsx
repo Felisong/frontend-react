@@ -4,6 +4,7 @@ import { createContext, ReactNode, useContext, useState } from "react";
 export type toastData = {
   message: string;
   isError: boolean;
+  show: boolean;
 };
 type toastContextType = {
   showToast: boolean;
@@ -19,17 +20,19 @@ export const useToast = () => {
   return context;
 };
 
+// the actual component that will provide access to use of this toast anywhere within.
 export const ToastProvider = ({ children }: { children: ReactNode }) => {
   const [showToast, setShowToast] = useState<boolean>(false);
   const [toastData, setToastData] = useState<toastData>({
     message: "",
     isError: false,
+    show: false,
   });
 
   // this will replace the data and make the toast display
   const triggerToast = (data: toastData) => {
     setToastData(data);
-    setShowToast(true);
+    setShowToast(data.show);
     setTimeout(() => setShowToast(false), 3000);
   };
 

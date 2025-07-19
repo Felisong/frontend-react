@@ -1,22 +1,50 @@
 "use client";
 
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AbsoluteFooterBg from "./AbsoluteFooterBg";
 import { sendContactForm } from "@/app/utils/sendContactForm";
-
+import { useToast } from "@/app/utils/context/toast/toastContext";
+export type FormModel = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  contact_number: string;
+};
 export default function Footer() {
   const [submitMessage, setSubmitMessage] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-
+  const { triggerToast, showToast } = useToast();
+  const [formInputs, setFormInputs] = useState<FormModel>({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+    contact_number: "",
+  });
+  const handleValueChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormInputs({
+      ...formInputs,
+      [e.target.id]: e.target.value,
+    });
+  };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(`event: `, e);
-    const form = e.currentTarget;
-    const formData = new FormData(form);
+    const formData = { ...formInputs };
     try {
       await sendContactForm(formData);
-      setSubmitMessage("Message sent!");
-      form.reset();
+      const successMsg = "Message sent!";
+      setSubmitMessage(successMsg);
+      setFormInputs({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+        contact_number: "",
+      });
+      triggerToast({ message: successMsg, isError: false, show: true });
     } catch (err) {
       setSubmitMessage("Failed to send message, please try again!");
     }
@@ -31,17 +59,28 @@ export default function Footer() {
           </h1>
           <form
             className="flex flex-col items-start md:items-end w-full"
-            onSubmit={handleSubmit}
             method="POST"
+            onSubmit={handleSubmit}
           >
             <label className="self-start" htmlFor="name">
               Name
             </label>
-            <input id="name" type="name" placeholder="John / Jane" required />
+            <input
+              onChange={(e) => {
+                handleValueChange(e);
+              }}
+              id="name"
+              type="name"
+              placeholder="John / Jane"
+              required
+            />
             <label className="self-start" htmlFor="email">
               Email
             </label>
             <input
+              onChange={(e) => {
+                handleValueChange(e);
+              }}
               id="email"
               type="email"
               placeholder="yourEmail@gmail.com"
@@ -51,6 +90,9 @@ export default function Footer() {
               Subject
             </label>
             <input
+              onChange={(e) => {
+                handleValueChange(e);
+              }}
               id="subject"
               type="text"
               placeholder="Purpose of Contact"
@@ -59,7 +101,14 @@ export default function Footer() {
             <label className="self-start" htmlFor="message">
               Message
             </label>
-            <textarea id="message" placeholder="Your message..." required />
+            <textarea
+              onChange={(e) => {
+                handleValueChange(e);
+              }}
+              id="message"
+              placeholder="Your message..."
+              required
+            />
             {/* anti-spam */}
             <label className="self-start" htmlFor="contact-number"></label>
             <input id="contact-number" type="hidden" />
