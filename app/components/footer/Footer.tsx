@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import AbsoluteFooterBg from "./AbsoluteFooterBg";
 import { sendContactForm } from "@/app/utils/sendContactForm";
 import { useToast } from "@/app/utils/context/toast/toastContext";
+import { contactFormVerification } from "@/app/utils/contactFormVerification";
 export type FormModel = {
   name: string;
   email: string;
@@ -32,7 +33,7 @@ export default function Footer() {
   const handleValueChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    // updated values... import the file.function to do verification here!
+    setFormErrors(contactFormVerification(formInputs));
     setFormInputs({
       ...formInputs,
       [e.target.id]: e.target.value,
@@ -57,6 +58,7 @@ export default function Footer() {
       setSubmitMessage("Failed to send message, please try again!");
     }
   };
+  console.log(`form error: `, formErrors);
 
   return (
     <footer className="w-full h-[120vh] md:h-[110vh] lg:h-[80vh] relative mt-32">
