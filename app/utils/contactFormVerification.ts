@@ -9,7 +9,7 @@ export function contactFormVerification(formInputs: FormModel): FormModel {
     const trimmed = input.trim().toLowerCase();
     if (!nameRegex.test(trimmed)) {
       return "Name input does not allow special characters";
-    } else if (trimmed.length < 2) {
+    } else if (trimmed.length < 3) {
       return "Name needs to be greater than 2 characters";
     } else if (trimmed.length > 50) {
       return "Name seems a bit long";

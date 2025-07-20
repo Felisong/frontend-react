@@ -11,16 +11,6 @@ export default function Home() {
     <div>
       <HeroSection></HeroSection>
       <HomeSection works={works} loading={loading}></HomeSection>
-      <Link
-        target="_blank"
-        href="https://icons8.com/icon/cHBUT9SmrD2V/typescript"
-      >
-        TypeScript
-      </Link>{" "}
-      icon by{" "}
-      <Link target="_blank" href="https://icons8.com">
-        Icons8
-      </Link>
     </div>
   );
 }

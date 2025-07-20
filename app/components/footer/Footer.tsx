@@ -5,6 +5,8 @@ import AbsoluteFooterBg from "./AbsoluteFooterBg";
 import { sendContactForm } from "@/app/utils/sendContactForm";
 import { useToast } from "@/app/utils/context/toast/toastContext";
 import { contactFormVerification } from "@/app/utils/contactFormVerification";
+import Link from "next/link";
+import FormErrorMsg from "../general/FormErrorMsg";
 export type FormModel = {
   name: string;
   email: string;
@@ -15,6 +17,7 @@ export type FormModel = {
 export default function Footer() {
   const [submitMessage, setSubmitMessage] = useState<string>("");
   const { triggerToast } = useToast();
+  const currentYear = new Date().getFullYear();
   const [formInputs, setFormInputs] = useState<FormModel>({
     name: "",
     email: "",
@@ -29,15 +32,19 @@ export default function Footer() {
     message: "",
     contact_number: "",
   });
+  // gives value to the form input on change of each input
   const handleValueChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormErrors(contactFormVerification(formInputs));
-    setFormInputs({
+    // getting the most up to date form input
+    const updatedFormInputs = {
       ...formInputs,
       [e.target.id]: e.target.value,
-    });
+    };
+    setFormInputs(updatedFormInputs);
+    setFormErrors(contactFormVerification(updatedFormInputs));
   };
+  // handles submitting the form
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = { ...formInputs };
@@ -61,80 +68,90 @@ export default function Footer() {
       triggerToast({ message: failureMessage, isError: true, show: true });
     }
   };
-  console.log(`form error: `, formErrors);
-
   return (
-    <footer className="w-full h-[120vh] md:h-[110vh] lg:h-[80vh] relative mt-32">
-      <div className="absolute inset-0 z-10 p-10 mt-16 md:mt-7 flex flex-col justify-end">
-        <section className="w-full h-full md:w-1/3">
-          <h1 className="text-end text-6xl md:text-center lg:text-end">
-            Contact Me
-          </h1>
-          <form
-            className="flex flex-col items-start md:items-end w-full"
-            method="POST"
-            onSubmit={handleSubmit}
-          >
-            <label className="self-start" htmlFor="name">
-              Name
-            </label>
-            <input
-              onChange={(e) => {
-                handleValueChange(e);
-              }}
-              id="name"
-              type="name"
-              placeholder="John / Jane"
-              required
-            />
-            <label className="self-start" htmlFor="email">
-              Email
-            </label>
-            <input
-              onChange={(e) => {
-                handleValueChange(e);
-              }}
-              id="email"
-              type="email"
-              placeholder="yourEmail@gmail.com"
-              required
-            />
-            <label className="self-start" htmlFor="subject">
-              Subject
-            </label>
-            <input
-              onChange={(e) => {
-                handleValueChange(e);
-              }}
-              id="subject"
-              type="text"
-              placeholder="Purpose of Contact"
-              required
-            />
-            <label className="self-start" htmlFor="message">
-              Message
-            </label>
-            <textarea
-              onChange={(e) => {
-                handleValueChange(e);
-              }}
-              id="message"
-              placeholder="Your message..."
-              required
-            />
-            {/* anti-spam */}
-            <label className="self-start" htmlFor="contact-number"></label>
-            <input id="contact-number" type="hidden" />
-            <button type="submit" className="text-2xl">
-              Submit
-            </button>
-            <p className="text-primary-white text-sm">
-              {submitMessage ? submitMessage : ""}
-            </p>
-          </form>
-        </section>
+    <footer>
+      <div className="w-full h-[135vh] md:h-[80vh] lg:h-[60vh] relative mt-32">
+        <div className="absolute inset-0 z-10 p-10 mt-16 md:mt-7 flex flex-col justify-end md:items-end">
+          <section className="w-full h-full md:w-2/3">
+            <h1 className="text-end text-6xl md:text-center lg:text-end">
+              Contact Me
+            </h1>
+            <form
+              className="flex flex-col items-start md:items-end w-full"
+              method="POST"
+              onSubmit={handleSubmit}
+            >
+              <label className="self-start" htmlFor="name">
+                Name
+              </label>
+              <input
+                onChange={(e) => {
+                  handleValueChange(e);
+                }}
+                id="name"
+                type="name"
+                placeholder="John / Jane"
+                required
+              />
+              {formErrors.name && <FormErrorMsg str={formErrors.name} />}
+              <label className="self-start" htmlFor="email">
+                Email
+              </label>
+              <input
+                onChange={(e) => {
+                  handleValueChange(e);
+                }}
+                id="email"
+                type="email"
+                placeholder="yourEmail@gmail.com"
+                required
+              />
+              {formErrors.email && <FormErrorMsg str={formErrors.email} />}
+              <label className="self-start" htmlFor="subject">
+                Subject
+              </label>
+              <input
+                onChange={(e) => {
+                  handleValueChange(e);
+                }}
+                id="subject"
+                type="text"
+                placeholder="Purpose of Contact"
+                required
+              />
+              {formErrors.subject && <FormErrorMsg str={formErrors.subject} />}
+              <label className="self-start" htmlFor="message">
+                Message
+              </label>
+              <textarea
+                onChange={(e) => {
+                  handleValueChange(e);
+                }}
+                id="message"
+                placeholder="Your message..."
+                required
+              />
+              {formErrors.message && <FormErrorMsg str={formErrors.message} />}
+              {/* anti-spam */}
+              <label className="self-start" htmlFor="contact-number"></label>
+              <input id="contact-number" type="hidden" />
+              <button type="submit" className="text-2xl">
+                Submit
+              </button>
+              <p className="text-primary-white text-sm">
+                {submitMessage ? submitMessage : ""}
+              </p>
+            </form>
+          </section>
+        </div>
+        <AbsoluteFooterBg />
       </div>
-      <AbsoluteFooterBg />
+      <div className="bg-vibrant-red w-full h-fit pt-5 text-center">
+        <p className="text-primary-white text-[0.9em]">{`© ${currentYear} Carolina Henriquez Silva. All rights reserved.`}</p>
+        <Link target="_blank" href="https://icons8.com">
+          some Skill icons by Icons8
+        </Link>
+      </div>
     </footer>
   );
 }
