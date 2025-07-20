@@ -7,6 +7,12 @@ import { FormModel } from "../components/footer/Footer";
 export async function sendContactForm(formData: FormModel) {
   try {
     console.log(`form data: `, formData);
+    if (formData.contact_number.length > 0) {
+      return {
+        success: true,
+        message: "Message submitted",
+      };
+    }
     // const res = await fetch(baseURL + '/submit-contact-form' , {
     //   method: 'POST',
     //   headers: {

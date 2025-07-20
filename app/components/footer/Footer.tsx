@@ -50,17 +50,23 @@ export default function Footer() {
     const formData = { ...formInputs };
     try {
       setSubmitMessage("Submitting message...");
-      await sendContactForm(formData);
-      const successMsg = "Message sent!";
-      setSubmitMessage(successMsg);
-      setFormInputs({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-        contact_number: "",
-      });
-      triggerToast({ message: successMsg, isError: false, show: true });
+      const result = await sendContactForm(formData);
+      if (result.success) {
+        const successMsg = result.message;
+        setSubmitMessage(successMsg);
+        setFormInputs({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+          contact_number: "",
+        });
+        triggerToast({ message: successMsg, isError: false, show: true });
+      } else {
+        const failureMsg = result.message;
+        setSubmitMessage(failureMsg);
+        triggerToast({ message: failureMsg, isError: true, show: true });
+      }
     } catch (err) {
       console.error(err);
       const failureMessage = "Failed to send message, please try again!";
