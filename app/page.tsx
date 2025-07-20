@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import HeroSection from "./components/hero/HeroSection";
 import HomeSection from "./components/home-section/HomeSection";
 import useWorks from "./hook/useWorks";
