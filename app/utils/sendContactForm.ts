@@ -21,7 +21,7 @@ export async function sendContactForm(formData: FormModel) {
     //   body: JSON.stringify(formData)
     // })
 
-    return { success: true, message: "check" };
+    return { success: true, message: "Message submitted" };
   } catch (err) {
     console.error(err);
     return { success: false, message: "nope" };

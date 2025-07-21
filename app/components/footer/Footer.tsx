@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AbsoluteFooterBg from "./AbsoluteFooterBg";
 import { sendContactForm } from "@/app/utils/sendContactForm";
 import { useToast } from "@/app/utils/context/toast/toastContext";
@@ -15,9 +15,10 @@ export type FormModel = {
   contact_number: string;
 };
 export default function Footer() {
-  const [submitMessage, setSubmitMessage] = useState<string>("");
   const { triggerToast } = useToast();
   const currentYear = new Date().getFullYear();
+  const [isFormValid, setIsFormValid] = useState<boolean>(false);
+  const [submitMessage, setSubmitMessage] = useState<string>("");
   const [formInputs, setFormInputs] = useState<FormModel>({
     name: "",
     email: "",
@@ -74,6 +75,15 @@ export default function Footer() {
       triggerToast({ message: failureMessage, isError: true, show: true });
     }
   };
+
+  // use effect to track form validation
+  useEffect(() => {
+    const hasErrors = Object.entries(formErrors).find(
+      (input) => input[1] !== ""
+    );
+    setIsFormValid(!hasErrors);
+  }, [formErrors]);
+
   return (
     <footer>
       <div className="w-full h-[135vh] md:h-[80vh] lg:h-[60vh] relative mt-32">
@@ -141,12 +151,17 @@ export default function Footer() {
               {/* anti-spam */}
               <label className="self-start" htmlFor="contact-number"></label>
               <input id="contact-number" type="hidden" />
-              <button type="submit" className="text-2xl">
-                Submit
+              <button
+                disabled={!isFormValid || submitMessage === "Message submitted"}
+                type="submit"
+                className="text-2xl hover:cursor-pointer disabled:cursor-not-allowed disabled:text-supplement-white "
+              >
+                {submitMessage === "Submitting message..."
+                  ? "Submitting message..."
+                  : submitMessage === "Message submitted"
+                  ? "Message submitted"
+                  : "Submit"}
               </button>
-              <p className="text-primary-white text-sm">
-                {submitMessage ? submitMessage : ""}
-              </p>
             </form>
           </section>
         </div>
