@@ -7,13 +7,7 @@ import { useToast } from "@/app/utils/context/toast/toastContext";
 import { contactFormVerification } from "@/app/utils/contactFormVerification";
 import Link from "next/link";
 import FormErrorMsg from "../general/FormErrorMsg";
-export type FormModel = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-  contact_number: string;
-};
+import { FormModel } from "@/types";
 export default function Footer() {
   const { triggerToast } = useToast();
   const currentYear = new Date().getFullYear();
@@ -152,14 +146,12 @@ export default function Footer() {
               <label className="self-start" htmlFor="contact-number"></label>
               <input id="contact-number" type="hidden" />
               <button
-                disabled={!isFormValid || submitMessage === "Message submitted"}
+                disabled={!isFormValid}
                 type="submit"
                 className="text-2xl hover:cursor-pointer disabled:cursor-not-allowed disabled:text-supplement-white "
               >
                 {submitMessage === "Submitting message..."
                   ? "Submitting message..."
-                  : submitMessage === "Message submitted"
-                  ? "Message submitted"
                   : "Submit"}
               </button>
             </form>
