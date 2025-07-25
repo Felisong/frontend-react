@@ -144,10 +144,15 @@ export default function Footer() {
               {formErrors.message && <FormErrorMsg str={formErrors.message} />}
               {/* anti-spam */}
               <label className="self-start" htmlFor="contact-number"></label>
-              <input id="contact-number" type="hidden" />
+              <input
+                id="contact-number"
+                type="hidden"
+                data-testid="contact-number"
+              />
               <button
                 disabled={!isFormValid}
                 type="submit"
+                name="submit"
                 className="text-2xl hover:cursor-pointer disabled:cursor-not-allowed disabled:text-supplement-white "
               >
                 {submitMessage === "Submitting message..."

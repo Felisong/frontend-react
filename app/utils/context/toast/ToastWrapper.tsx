@@ -12,6 +12,7 @@ const ToastWrapper = () => {
   }, [showToast]);
   return (
     <div
+      role="status"
       className={`flex justify-center fixed top-20 transition-all duration-300 w-full h-fit z-20 ${
         fadeIn ? `opacity-100` : `opacity-0 -translate-y-8`
       }`}
