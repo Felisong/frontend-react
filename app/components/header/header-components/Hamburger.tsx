@@ -13,8 +13,12 @@ export default function Hamburger({
     setShowMenu(!showMenu);
   };
 
+  const closeMenu = (value: boolean) => {
+    setShowMenu(value);
+  };
+
   return (
-    <nav className="relative">
+    <nav className="relative z-10">
       <button onClick={handleClick}>
         <svg
           width="48"
@@ -43,10 +47,31 @@ export default function Hamburger({
           />
         </svg>
       </button>
-      <aside className={`${showMenu ? "fixed" : "hidden"} left-0 top-0 `}>
-        <ul>
-          <NavList navigationSelect={navigationSelect}></NavList>
-        </ul>
+      <div
+        className={`block w-full h-full z-10 ${
+          showMenu ? "relative" : "hidden"
+        }`}
+      >
+        <button
+          className="fixed right-8 top-6"
+          onClick={() => {
+            setShowMenu(false);
+          }}
+        >
+          X
+        </button>
+      </div>
+      <aside
+        className={`${
+          showMenu ? "fixed" : "hidden"
+        } left-0 top-0 w-full h-fit p-4 bg-vibrant-red pb-6`}
+      >
+        <div className="h-[10vh] w-full bg-vibrant-red"> image here</div>
+        <NavList
+          isMobile={true}
+          navigationSelect={navigationSelect}
+          closeMenu={closeMenu}
+        ></NavList>
       </aside>
     </nav>
   );

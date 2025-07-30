@@ -12,7 +12,13 @@ export default function HeroSection() {
       </h1>
       <SpaceSheepLogo></SpaceSheepLogo>
       <section className="flex flex-col justify-center items-center mb-8">
-        <BackDrop></BackDrop>
+        <BackDrop
+          hasTitle={true}
+          description="I am a woman with a love for web development and design. An aspiring
+          Full Stack Developer."
+          title="Hello!"
+          isHeroBox={true}
+        ></BackDrop>
         <ArrowDown></ArrowDown>
       </section>
     </>

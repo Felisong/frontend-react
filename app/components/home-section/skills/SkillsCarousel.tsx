@@ -1,3 +1,4 @@
+"use client";
 import { Skills } from "@/types";
 import DisplaySvg from "./DisplaySvg";
 import { useEffect, useState } from "react";
