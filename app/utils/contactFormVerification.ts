@@ -1,4 +1,4 @@
-import { FormModel } from "../components/footer/Footer";
+import type { FormModel } from "@/types";
 
 export function contactFormVerification(formInputs: FormModel): FormModel {
   const nameRegex = /^[A-Za-z]+([ -][A-Za-z]+)*$/;

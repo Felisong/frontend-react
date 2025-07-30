@@ -7,7 +7,7 @@ import { useToast } from "@/app/utils/context/toast/toastContext";
 import { contactFormVerification } from "@/app/utils/contactFormVerification";
 import Link from "next/link";
 import FormErrorMsg from "../general/FormErrorMsg";
-import { FormModel } from "@/types";
+import type { FormModel } from "@/types";
 export default function Footer() {
   const { triggerToast } = useToast();
   const currentYear = new Date().getFullYear();

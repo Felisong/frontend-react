@@ -8,7 +8,7 @@ export async function sendContactForm(formData: FormModel) {
   try {
     // double checks all required fields, except contact_number is usually empty
     const keys = ["name", "email", "subject", "message"] as const;
-    let formNotValid = keys.some(
+    const formNotValid = keys.some(
       (key) => formData[key] === undefined || formData[key].trim().length === 0
     );
     if (formNotValid) throw new Error("Please fill out all form inputs.");

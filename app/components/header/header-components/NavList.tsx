@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 
 export default function NavList({
   navigationSelect,
@@ -10,11 +9,11 @@ export default function NavList({
 }: {
   navigationSelect: { name: string; url: string; currentPage: boolean }[];
   isMobile?: boolean;
-  closeMenu?: Function;
+  closeMenu?: (value: boolean) => void;
 }) {
   // dispatch successfuly redirect to close the menu
   const closeDropdown = () => {
-    closeMenu && closeMenu(false);
+    if (closeMenu) closeMenu(false);
   };
 
   return (

@@ -10,9 +10,9 @@ export default function PriorWorks() {
     <main>
       <h1 className="font-header text-center mx-8 my-4"> All Projects</h1>
       <p className="text-center p-8">
-        I'm going to be trying to have the three most featured projects in the
+        {`I'm going to be trying to have the three most featured projects in the
         home page, but thought it'd be nice to have somewhere to see everything
-        I've done!
+        I've done!`}
       </p>
       {loading ? (
         <p className="text-center p-8"> Loading...</p>
