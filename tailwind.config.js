@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+// add animations here!
 export default {
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {

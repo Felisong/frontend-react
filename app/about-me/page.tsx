@@ -1,7 +1,7 @@
 import AboutMeSvg from "../components/general/AboutMeSvg";
 import ArrowDown from "../components/general/ArrowDown";
 import BackDrop from "../components/general/BackDrop";
-import SkillsCarousel from "../components/home-section/skills/SkillsCarousel";
+import SkillAboutMe from "../components/home-section/skills/SkillsAboutMe";
 
 export default function AboutMe() {
   return (
@@ -20,7 +20,7 @@ export default function AboutMe() {
 
         <h1 className="font-header text-center mx-8 my-4"> Skills</h1>
         <p>I wanted to have fun with a different way to display these</p>
-        <SkillsCarousel skills={[]} />
+        <SkillAboutMe />
         <button>Projects</button>
       </section>
     </>

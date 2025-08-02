@@ -1,4 +1,30 @@
+"use client";
+import useSkills from "@/app/hook/useSkills";
+import type { Skills } from "@/types";
+import { useEffect, useState } from "react";
+
 export default function SkillAboutMe() {
+  const { skills, loading } = useSkills();
+  // i will for each section, to the same component which will do the sliding
+  const [allSections, setAllSections] = useState<Skills[][]>([[], [], []]);
+  const sortSkills = (skillsArr: Skills[]) => {
+    const dividedBy = Math.ceil(skillsArr.length / 3);
+    let currentSection: number = 0;
+    let tempTotal: number = 0;
+    const allArrays: Skills[][] = [[], [], []];
+    for (let i = 0; i < skillsArr.length; i++) {
+      if (tempTotal === (currentSection === 1 ? dividedBy - 1 : dividedBy)) {
+        currentSection += 1;
+        tempTotal = 0;
+      }
+      allArrays[currentSection].push(skillsArr[i]);
+      tempTotal++;
+    }
+    setAllSections(allArrays);
+  };
+  useEffect(() => {
+    sortSkills(skills);
+  }, [loading]);
   // = = = = = = =
   //  = = = = = =
   // = = = = = = =
