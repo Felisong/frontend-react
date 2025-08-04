@@ -1,36 +1,42 @@
-"use client";
+// "use client";
 
-import { Skills } from "@/types";
-import DisplaySvg from "./DisplaySvg";
+// import { Skills } from "@/types";
+// import DisplaySvg from "./DisplaySvg";
+// import { v4 as uuidv4 } from "uuid";
 
-export default function SkillsCarouselThin({
-  skillsArr,
-}: {
-  skillsArr: Skills[];
-}) {
-  // = = = = = = =
-  //  = = = = = =
-  // = = = = = = =
-
-  // each row can be moveed independently of eachother, and otherwise will have a mild hover effect
-  // git a div that is 100% width, fit-content height. Position relative. Hidden overflow
-  // 3 divs inside , each will probably be their own component
-  // have each one be like 150% width, and span accross
-  // do a pop shift offscreen of the items and keep looping through them as the user moves through them
-  return (
-    <div className="flex w-[200%]">
-      {skillsArr.map((skill) => {
-        return (
-          <div key={skill.skill} className="mx-2">
-            <DisplaySvg
-              svgStr={skill.logo_svg}
-              size={80}
-              color=""
-              className="hover:fill-bright-yellow fill-bright-yellow"
-            />
-          </div>
-        );
-      })}
-    </div>
-  );
-}
+// export default function SkillsCarouselThin({
+//   skillsArr,
+//   offset = 0,
+//   shouldTransition = true,
+// }: {
+//   skillsArr: Skills[];
+//   offset: number;
+//   shouldTransition: boolean;
+// }) {
+//   return (
+//     <div
+//       className={`flex w-max ${
+//         shouldTransition ? " transition-transform duration-300 ease-in-out" : ""
+//       }`}
+//       style={{
+//         transform: `translateX(${offset}px)`,
+//       }}
+//     >
+//       {skillsArr.map((skill) => {
+//         return (
+//           <div
+//             key={uuidv4()}
+//             className="mx-2 w-[80px] shrink-0 h-[80px] transition-transform"
+//           >
+//             <DisplaySvg
+//               svgStr={skill.logo_svg}
+//               size={80}
+//               color=""
+//               className="hover:fill-bright-yellow fill-bright-yellow"
+//             />
+//           </div>
+//         );
+//       })}
+//     </div>
+//   );
+// }
