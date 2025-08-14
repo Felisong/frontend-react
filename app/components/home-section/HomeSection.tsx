@@ -19,7 +19,7 @@ export default function HomeSection({
   return (
     <main className="text-center">
       <h1>My Skills</h1>
-      <div className="max-w-full relative h-fit">
+      <div className="max-w-full relative h-fit my-20">
         <div className="z-10">
           <SkillsCarousel skills={skills} />
         </div>

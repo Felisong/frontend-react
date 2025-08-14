@@ -42,7 +42,8 @@ export default function WorkDetailPage({
       <h1 className="font-header text-center mx-8 my-8 md:col-span-2">
         {currentWork.title}
       </h1>
-      <div className="flex flex-col my-6 text-center md:flex-row md:justify-between md:mx-auto md:w-full md:my-2 md:col-span-2">
+      {/* little blurbs about time, if its complete.. etc */}
+      <div className="flex flex-col my-6 text-center md:flex-row md:justify-center md:mx-auto md:w-2/3 md:my-2 md:col-span-2 lg:w-1/3 items-center">
         <p className="bg-light-pink w-fit mx-auto text-dark-blue py-1 px-2 rounded-4xl my-1 h-fit">
           {currentWork.timeframe}
         </p>
@@ -52,6 +53,40 @@ export default function WorkDetailPage({
         <p className="bg-light-pink w-fit mx-auto text-dark-blue py-1 px-2 rounded-4xl my-1 h-fit">
           {currentWork.complete ? "Complete" : "incomplete"}
         </p>
+      </div>
+      {/* Links here */}
+      <div className="flex flex-col text-center md:text-start mx-auto md:flex-row md:col-span-2 gap-12 my-4 ">
+        {currentWork.figmaLinks.length > 0 && (
+          <div>
+            <h2 className="font-header text-xl">Figma Links</h2>
+            <div className="flex flex-col">
+              {currentWork.figmaLinks.map((link: string, index) => (
+                <a key={link} href={link}>
+                  Figma Link {index + 1}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+        {(currentWork.githubFront || currentWork.githubBack) && (
+          <div>
+            <h2 className="font-header text-xl">Github Link(s)</h2>
+            <div className="flex flex-col">
+              {currentWork.githubFront && (
+                <a href={currentWork.githubFront}>Frontend</a>
+              )}
+              {currentWork.githubBack && (
+                <a href={currentWork.githubBack}>Backend</a>
+              )}
+            </div>
+          </div>
+        )}
+        {currentWork.deployedUrl && (
+          <div>
+            <h2 className="font-header text-xl">Deployed Site</h2>
+            <a href={currentWork.deployedUrl}>Click here to view live site</a>
+          </div>
+        )}
       </div>
       <img
         className="w-full h-auto self-start p-4"

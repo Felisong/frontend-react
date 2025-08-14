@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-dark-blue text-primary-white font-primary antialiased`}
+        className={`bg-dark-blue text-primary-white font-primary antialiased min-h-full`}
       >
         <ToastProvider>
           <ToastWrapper />

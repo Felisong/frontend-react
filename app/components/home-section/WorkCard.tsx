@@ -26,19 +26,19 @@ export default function WorkCard({ work }: { work: PriorWorksModel }) {
         onMouseLeave={handleMouseLeave}
       >
         {skillsDisplayed && (
-          <div className="w-full h-full flex flex-col justify-around bg-dark-pink absolute">
+          <div className="w-full h-full flex flex-col justify-around bg-dark-pink absolute p-4 md:text-sm">
             <p
               dangerouslySetInnerHTML={{
                 __html: work.description.substring(0, 100) + "...",
               }}
             ></p>
             <button
-              className="hover:text-bright-yellow"
+              className="hover:text-bright-yellow xl:text-xl active:text-white"
               onClick={() => {
                 router.push(`/${work.title}`);
               }}
             >
-              Learn all about this Project
+              Click here for details
             </button>
           </div>
         )}
@@ -47,7 +47,7 @@ export default function WorkCard({ work }: { work: PriorWorksModel }) {
       <h1 className={`transition-all ${skillsDisplayed ? "mt-6" : "mt-2"}`}>
         {work.title}
       </h1>
-      <button onClick={handleSkillDisplay}>
+      <button className="xl:hidden" onClick={handleSkillDisplay}>
         {skillsDisplayed ? "Hide skills" : "Click here for quick info"}
       </button>
     </article>

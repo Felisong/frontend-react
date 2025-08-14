@@ -49,13 +49,15 @@ export default function SkillsCarousel({ skills }: { skills: Skills[] }) {
           </p>
         </div>
       ) : (
-        <div className="relative w-5/6 mx-auto overflow-hidden">
-          <div className="flex transition-transform duration-300 ease-in-out">
+        <div className="relative w-5/6 mx-auto overflow-hidden md:w-2/3 lg:w-1/3">
+          <div
+            className="flex transition-transform duration-300 ease-in-out"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
             {displaySkillsArr.map((skillSection: Skills[]) => (
               <div
                 key={skillSection[0].skill}
                 className="grid grid-cols-2 flex-shrink-0 w-full"
-                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
                 {skillSection.map((skill: Skills) => (
                   <Link
