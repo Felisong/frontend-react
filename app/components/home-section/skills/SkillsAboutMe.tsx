@@ -36,11 +36,10 @@
 //     }
 
 //     allArrays = allArrays.map((array: Skills[], i) => {
-//       return [array[array.length - 1], ...array, array[0]];
+//       return [array[array.length - 1], ...array, ...array, array[0]];
 //     });
 
 //     setAllSections(allArrays);
-//     SetOffSet([-itemWidth, -itemWidth, -itemWidth]);
 //   };
 //   // handles the new offset
 //   const slide = (dir: "left" | "right", arr: Skills[], ind: number) => {
@@ -50,8 +49,8 @@
 //     // getting rid of the two duplicates for smooth transition
 //     const totalItems = arr.length - 2;
 //     // start is 80px while end is all the way to the last item, so * totalItems
-//     const startPosition = -itemWidth;
-//     const endPosition = -(itemWidth * totalItems);
+//     const startPosition = 0;
+//     const endPosition = -(itemWidth * (totalItems / 2));
 //     // if its more negative than the end position, reset to start position. Else ifs greater than the start position, reset to the end position
 //     const needsReset = newOffset < endPosition || newOffset > startPosition;
 
@@ -71,6 +70,7 @@
 //         updated[ind] = newOffset;
 //         return updated;
 //       });
+
 //       requestAnimationFrame(() => {
 //         setShouldTransition((prev) => {
 //           const updated = [...prev];
@@ -78,6 +78,7 @@
 //           return updated;
 //         });
 //       });
+//       newOffset = newOffset + direction * itemWidth;
 //     }
 //     SetOffSet((prev) => {
 //       const updated = [...prev];
@@ -85,7 +86,7 @@
 //       return updated;
 //     });
 //   };
-//   console.log(`offsets: `, offset);
+//   console.log(`offsets: `, offset[0]);
 //   useEffect(() => {
 //     if (!loading) {
 //       sortSkills(skills);

@@ -1,6 +1,7 @@
 import AboutMeSvg from "../components/general/AboutMeSvg";
 import ArrowDown from "../components/general/ArrowDown";
 import BackDrop from "../components/general/BackDrop";
+import Button from "../components/general/Button";
 // import SkillAboutMe from "../components/home-section/skills/SkillsAboutMe";
 
 export default function AboutMe() {
@@ -17,11 +18,18 @@ export default function AboutMe() {
         <div className="flex justify-center">
           <ArrowDown />
         </div>
-
+        <div className="flex justify-center my-8">
+          <Button
+            props={{
+              label: "View Resume",
+              link: "/documents/Resume-Carolina-HS.pdf",
+            }}
+          />
+        </div>
         <h1 className="font-header text-center mx-8 my-4">
           Portfolio Blurb - Fullstack Developer
         </h1>
-        <p>
+        <p className="text-center mx-8">
           As a former 2D animator, I absolutely love colors and design - skills
           that naturally translated into web development. What started as a
           fascination with frontend has grown into a genuine passion for
@@ -42,8 +50,11 @@ export default function AboutMe() {
           any new technologies I need to learn? I have full confidence in my
           ability to pick them up quickly.
         </p>
-        {/* <SkillAboutMe /> */}
-        <button>Projects</button>
+        <div className="flex justify-center my-8">
+          <Button props={{ label: "Projects", link: "/prior-works" }} />
+        </div>
+        {/* <h1>Skills</h1>
+        <SkillAboutMe /> */}
       </section>
     </>
   );

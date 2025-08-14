@@ -18,7 +18,6 @@ export default function NavigationBar() {
       url: "/prior-works",
       currentPage: currentPath === "/prior-works",
     },
-    { name: "Resume", url: "/resume", currentPage: currentPath === "/resume" },
   ];
 
   return (
