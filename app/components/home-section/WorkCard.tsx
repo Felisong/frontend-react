@@ -28,8 +28,9 @@ export default function WorkCard({ work }: { work: PriorWorksModel }) {
         {skillsDisplayed && (
           <div className="w-full h-full flex flex-col justify-around bg-dark-pink absolute p-4 md:text-sm">
             <p
+              className=" line-clamp-3 xl:line-clamp-5 2xl:line-clamp-6"
               dangerouslySetInnerHTML={{
-                __html: work.description.substring(0, 100) + "...",
+                __html: work.description,
               }}
             ></p>
             <button

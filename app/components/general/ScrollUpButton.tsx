@@ -7,7 +7,7 @@ export default function ScrollUpButton() {
 
   useEffect(() => {
     const handleArrowDisplay = () => {
-      setArrowVisible(window.scrollY > 100);
+      setArrowVisible(window.scrollY > 200);
     };
     window.addEventListener("scroll", handleArrowDisplay);
 

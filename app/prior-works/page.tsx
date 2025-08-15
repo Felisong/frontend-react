@@ -17,7 +17,7 @@ export default function PriorWorks() {
       {loading ? (
         <p className="text-center p-8"> Loading...</p>
       ) : (
-        <div className="grid items-center text-center  md:grid-cols-3 gap-4 px-4">
+        <div className="grid text-center  md:grid-cols-3 gap-4 px-4 items-start">
           {works.map((work: PriorWorksModel, id: number) => (
             <WorkCard
               key={work.title ? String(work.title) : String(id)}
