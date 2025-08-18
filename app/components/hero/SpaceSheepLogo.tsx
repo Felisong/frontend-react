@@ -7,11 +7,11 @@ type SpaceSheepLogoProps = {
 
 export default function SpaceSheepLogo({
   width = "391",
-  height = "389",
+  height = "391",
 }: SpaceSheepLogoProps) {
   return (
     <svg
-      viewBox="0 0 391 389"
+      viewBox="0 0 391 391"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       width={width}
