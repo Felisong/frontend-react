@@ -10,12 +10,9 @@ export default function AboutMe() {
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    console.log(`why isnt this working?`);
     const determineDesktop = () => {
-      console.log(`window: `, window);
       if (window) {
         const windowWidth = window.innerWidth;
-        console.log(`window width: `, windowWidth);
         setIsDesktop(windowWidth > 1024);
       }
     };
@@ -25,7 +22,6 @@ export default function AboutMe() {
       window.removeEventListener("resize", determineDesktop);
     };
   }, []);
-  console.log(`hello??`);
 
   return (
     <>

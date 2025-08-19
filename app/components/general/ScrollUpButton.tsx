@@ -23,7 +23,7 @@ export default function ScrollUpButton() {
     <div className="z-20 fixed bottom-1/15 w-full flex justify-center">
       <button
         onClick={() => {
-          arrowVisible && goToTop();
+          if (arrowVisible) goToTop();
         }}
         className={`p-2 bg-primary-white rounded-full w-14 h-14 text-dark-blue flex items-center justify-center text-3xl ${
           arrowVisible ? "opacity-80" : "opacity-0"
