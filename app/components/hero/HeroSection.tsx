@@ -7,7 +7,7 @@ import SpaceSheepLogo from "./SpaceSheepLogo";
 export default function HeroSection() {
   return (
     <>
-      <h1 className="font-header text-center mx-8 my-4">
+      <h1 className="font-header text-center mx-8 my-4 2xl:text-5xl 2xl:my-16">
         I am Carolina Henriquez Silva!
       </h1>
       <div className="h-fit w-full xl:h-[80vh] xl:relative">

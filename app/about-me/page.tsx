@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useState } from "react";
 import AboutMeSvg from "../components/general/AboutMeSvg";
 import ArrowDown from "../components/general/ArrowDown";
 import BackDrop from "../components/general/BackDrop";
@@ -5,31 +7,67 @@ import Button from "../components/general/Button";
 // import SkillAboutMe from "../components/home-section/skills/SkillsAboutMe";
 
 export default function AboutMe() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    console.log(`why isnt this working?`);
+    const determineDesktop = () => {
+      console.log(`window: `, window);
+      if (window) {
+        const windowWidth = window.innerWidth;
+        console.log(`window width: `, windowWidth);
+        setIsDesktop(windowWidth > 1024);
+      }
+    };
+    determineDesktop();
+    window.addEventListener("resize", determineDesktop);
+    return () => {
+      window.removeEventListener("resize", determineDesktop);
+    };
+  }, []);
+  console.log(`hello??`);
+
   return (
     <>
       <section>
-        <h1 className="font-header text-center mx-8 my-4"> About Me</h1>
-        <div className="flex flex-col items-center">
-          <div className="w-[80%] h-auto my-8 rounded-full bg-bright-yellow">
+        <h1 className="font-header text-center mx-8 my-4 xl:text-5xl xl:mt-16">
+          About Me
+        </h1>
+        <div className="flex flex-col items-center xl:w-full xl:h-[80vh] xl:flex-row xl:justify-center">
+          <div className="w-[80%] h-auto my-8 rounded-full bg-bright-yellow xl:h-[600px] xl:w-[600px] 2xl:h-[700px] 2xl:w-[700px]">
             <AboutMeSvg />
           </div>
-          <BackDrop description="I am a friendly woman with a multitude of skills to offer. Passionate, driven and friendly. I do my best, and am always striving to improve myself. I have found a love for coding, and hope my site shows that too!" />
+          <div className="xl:w-1/3">
+            <BackDrop description="I am a friendly woman with a multitude of skills to offer. Passionate, driven and friendly. I do my best, and am always striving to improve myself. I have found a love for coding, and hope my site shows that too!" />
+            {isDesktop && (
+              <div className="flex justify-center my-8">
+                <Button
+                  props={{
+                    label: "View Resume",
+                    link: "/documents/Resume-Carolina-HS.pdf",
+                  }}
+                />
+              </div>
+            )}
+          </div>
         </div>
         <div className="flex justify-center">
           <ArrowDown />
         </div>
-        <div className="flex justify-center my-8">
-          <Button
-            props={{
-              label: "View Resume",
-              link: "/documents/Resume-Carolina-HS.pdf",
-            }}
-          />
-        </div>
+        {!isDesktop && (
+          <div className="flex justify-center my-8">
+            <Button
+              props={{
+                label: "View Resume",
+                link: "/documents/Resume-Carolina-HS.pdf",
+              }}
+            />
+          </div>
+        )}
         <h1 className="font-header text-center mx-8 my-4">
           Portfolio Blurb - Fullstack Developer
         </h1>
-        <p className="text-center mx-8">
+        <p className="text-center mx-8 lg:mx-96">
           As a former 2D animator, I absolutely love colors and design - skills
           that naturally translated into web development. What started as a
           fascination with frontend has grown into a genuine passion for
