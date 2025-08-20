@@ -206,29 +206,31 @@ export default function SpaceSheepLogo({
                   strokeWidth={1.8578}
                 />
               </g>
-              <g id="helmet-big-sparkle">
+              <g id="sparkles" className="">
+                <g id="helmet-big-sparkle">
+                  <circle
+                    id="Ellipse 3"
+                    cx={78.492}
+                    cy={219.127}
+                    r={10.4966}
+                    fill="#FFCE74"
+                  />
+                  <circle
+                    id="Ellipse 5"
+                    cx={76.82}
+                    cy={219.128}
+                    r={7.70987}
+                    fill="white"
+                  />
+                </g>
                 <circle
-                  id="Ellipse 3"
-                  cx={78.492}
-                  cy={219.127}
-                  r={10.4966}
-                  fill="#FFCE74"
-                />
-                <circle
-                  id="Ellipse 5"
-                  cx={76.82}
-                  cy={219.128}
-                  r={7.70987}
-                  fill="white"
+                  id="helmet-little-sparkle animate-sparkles"
+                  cx={73.8475}
+                  cy={236.591}
+                  r={4.73739}
+                  fill="#FF7474"
                 />
               </g>
-              <circle
-                id="helmet-little-sparkle"
-                cx={73.8475}
-                cy={236.591}
-                r={4.73739}
-                fill="#FF7474"
-              />
             </g>
           </g>
         </g>
@@ -242,7 +244,7 @@ export default function SpaceSheepLogo({
           y2={43.0057}
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#B91B5A" />
+          <stop stopColor="#FFCE74" />
           <stop offset={1} stopColor="#341620" />
         </linearGradient>
         <linearGradient

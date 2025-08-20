@@ -21,8 +21,8 @@ export default function NavigationBar() {
   ];
 
   return (
-    <header className="bg-vibrant-red px-10 py-3 h-fi font-header">
-      <ul className="hidden md:flex justify-start">
+    <header className="bg-vibrant-red px-10 py-3 h-fit font-header">
+      <ul className="hidden md:flex md:justify-start md:flex-row">
         <NavList navigationSelect={navigationSelect}></NavList>
       </ul>
       <div className="flex justify-end md:hidden">

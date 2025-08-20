@@ -4,13 +4,28 @@ import DisplaySvg from "./DisplaySvg";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-export default function SkillsCarousel({ skills }: { skills: Skills[] }) {
+export default function SkillsCarousel({
+  skills,
+  keyInputSlide,
+}: {
+  skills: Skills[];
+  keyInputSlide: number;
+}) {
   const [displaySkillsArr, setDisplaySkillsArr] = useState<Skills[][]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [fetchedSkills, setFetchedSkills] = useState<boolean>(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const transparentSVGS = [
+    "Friendly",
+    "Flowcharting",
+    "Cross-browser development",
+    "Organized",
+    "Communicative",
+  ];
   // rounds up for dividernum
   const dividerNum = Math.ceil(skills.length / 3);
+
+  // sorts the arrays into pieces for the skills carousel
   useEffect(() => {
     if (skills.length === 0) {
       setFetchedSkills(true);
@@ -37,6 +52,10 @@ export default function SkillsCarousel({ skills }: { skills: Skills[] }) {
     setLoading(false);
   }, [skills, dividerNum]);
 
+  useEffect(() => {
+    // whenever key input slide changes
+    setCurrentSlide(keyInputSlide);
+  }, [keyInputSlide]);
   return (
     <div className="relative mt-8">
       {loading ? (
@@ -68,12 +87,22 @@ export default function SkillsCarousel({ skills }: { skills: Skills[] }) {
                     rel="noopener noreferrer"
                     aria-label={`Visit ${skill.skill} website`}
                   >
-                    <DisplaySvg
-                      svgStr={skill.logo_svg}
-                      size={80}
-                      color="#FFCE74"
-                      className="hover:fill-bright-yellow"
-                    />
+                    {transparentSVGS.includes(skill.skill) ? (
+                      <DisplaySvg
+                        svgStr={skill.logo_svg}
+                        size={80}
+                        className="hover:color-vibrant-red stroke-[8px]"
+                        color="#FFFFFF00"
+                      />
+                    ) : (
+                      <DisplaySvg
+                        svgStr={skill.logo_svg}
+                        size={80}
+                        color="#FFCE74"
+                        className=""
+                      />
+                    )}
+
                     <h2 className="mt-2 text-center">{skill.skill}</h2>
                   </Link>
                 ))}

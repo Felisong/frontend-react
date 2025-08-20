@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import NavList from "./NavList";
+import SpaceSheepStatic from "../../hero/SpaceSheepStatic";
 
 export default function Hamburger({
   navigationSelect,
@@ -53,7 +54,7 @@ export default function Hamburger({
         }`}
       >
         <button
-          className="fixed right-8 top-6"
+          className="fixed right-8 top-6 text-3xl"
           onClick={() => {
             setShowMenu(false);
           }}
@@ -64,14 +65,18 @@ export default function Hamburger({
       <aside
         className={`${
           showMenu ? "fixed" : "hidden"
-        } left-0 top-0 w-full h-fit p-4 bg-vibrant-red pb-6`}
+        } left-0 top-0 w-full h-fit p-4 bg-vibrant-red pb-6 flex flex-col`}
       >
-        <div className="h-[10vh] w-full bg-vibrant-red"> image here</div>
-        <NavList
-          isMobile={true}
-          navigationSelect={navigationSelect}
-          closeMenu={closeMenu}
-        ></NavList>
+        <div className="absolute bg-vibrant-red top-2 left-2">
+          <SpaceSheepStatic width="75px" height="75px" />
+        </div>
+        <div className="pt-20">
+          <NavList
+            isMobile={true}
+            navigationSelect={navigationSelect}
+            closeMenu={closeMenu}
+          ></NavList>
+        </div>
       </aside>
     </nav>
   );

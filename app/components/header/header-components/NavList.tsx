@@ -19,7 +19,7 @@ export default function NavList({
   return (
     <>
       {navigationSelect.map((listItem, index) => (
-        <li className="mx-8 text-xl list-none " key={listItem.name}>
+        <li className="mx-8 text-xl list-none" key={listItem.name}>
           <Link
             className={`hover:text-bright-yellow ${
               listItem.currentPage ? "text-supplement-white" : ""

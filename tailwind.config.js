@@ -58,6 +58,10 @@ export default {
           "0%, 100%": { transform: "rotate(-5deg)" },
           "50%": { transform: "rotate(20deg)" },
         },
+        sparkles: {
+          "0%, 100%": { transform: "scale-1" },
+          "50%": { transform: "scale-1.2" },
+        },
       },
       animation: {
         "bounce-y": "spaceBounce 2s ease-in-out infinite",
@@ -68,6 +72,7 @@ export default {
         "head-bounce": "headBounce 2s ease-in-out infinite",
         "whole-arm": "wholeArm 0.9s ease-in-out infinite",
         "lower-arm": "lowerArm 0.9s ease-in-out infinite",
+        "sparkles ": "sparkles 1s ease-in-out infinite",
       },
     },
   },
