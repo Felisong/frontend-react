@@ -39,7 +39,7 @@ export default function AboutMe() {
           that naturally translated into web development. What started as a
           fascination with frontend has grown into a genuine passion for
           fullstack development. The procedural thinking, puzzle solving, and
-          optimizations you can achieve across the entire stack truly excite me!"
+          optimizations you can achieve across the entire stack excites me!"
             />
             {isDesktop && (
               <div className="flex justify-center my-8">
