@@ -17,8 +17,7 @@ export default function HeroSection() {
         <section className="flex flex-col justify-center items-center mb-8 xl:absolute xl:right-24  xl:z-10 xl:w-1/2 xl:h-full">
           <BackDrop
             hasTitle={true}
-            description="I am a woman with a love for web development and design. An aspiring
-          Full Stack Developer."
+            description="Passionate Full Stack Web Developer. Combining my love for creative arts, and logical puzzles."
             title="Hello!"
             isHeroBox={true}
           ></BackDrop>

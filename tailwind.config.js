@@ -50,6 +50,14 @@ export default {
           "0%, 100%": { transform: "translateY(0) rotate(-2deg)" },
           "50%": { transform: "translateY(1%) rotate(0deg)" },
         },
+        wholeArm: {
+          "0%, 100%": { transform: "rotate(0deg)" },
+          "50%": { transform: "rotate(-2deg)" },
+        },
+        lowerArm: {
+          "0%, 100%": { transform: "rotate(-5deg)" },
+          "50%": { transform: "rotate(20deg)" },
+        },
       },
       animation: {
         "bounce-y": "spaceBounce 2s ease-in-out infinite",
@@ -58,6 +66,8 @@ export default {
         "tail-wag": "tailWag 1.5s ease-in-out infinite",
         "delayed-rotate": "backLeftLeg 2s ease-in-out infinite",
         "head-bounce": "headBounce 2s ease-in-out infinite",
+        "whole-arm": "wholeArm 0.001s ease-in-out infinite",
+        "lower-arm": "lowerArm 0.001s ease-in-out infinite",
       },
     },
   },

@@ -34,7 +34,13 @@ export default function AboutMe() {
             <AboutMeSvg />
           </div>
           <div className="xl:w-1/3">
-            <BackDrop description="I am a friendly woman with a multitude of skills to offer. Passionate, driven and friendly. I do my best, and am always striving to improve myself. I have found a love for coding, and hope my site shows that too!" />
+            <BackDrop
+              description="As a former 2D animator, I absolutely love colors and design - skills
+          that naturally translated into web development. What started as a
+          fascination with frontend has grown into a genuine passion for
+          fullstack development. The procedural thinking, puzzle solving, and
+          optimizations you can achieve across the entire stack truly excite me!"
+            />
             {isDesktop && (
               <div className="flex justify-center my-8">
                 <Button
@@ -64,11 +70,6 @@ export default function AboutMe() {
           Portfolio Blurb - Fullstack Developer
         </h1>
         <p className="text-center mx-8 lg:mx-96">
-          As a former 2D animator, I absolutely love colors and design - skills
-          that naturally translated into web development. What started as a
-          fascination with frontend has grown into a genuine passion for
-          fullstack development. The procedural thinking, puzzle solving, and
-          optimizations you can achieve across the entire stack truly excite me.
           <br />
           <br />
           While I initially gravitated towards frontend in school, I&apos;ve

@@ -97,7 +97,8 @@ export default function AboutMeSvg(props: SVGProps<SVGSVGElement>) {
                   fill="#1C1006"
                 />
               </g>
-              <g id="fullarm">
+              {/* origin-[60%_70%] animate-whole-arm */}
+              <g id="fullarm" className="origin-[60%_70%] animate-whole-arm ">
                 <g id="backarm">
                   <rect
                     id="backarm_2"
@@ -115,7 +116,11 @@ export default function AboutMeSvg(props: SVGProps<SVGSVGElement>) {
                     fill="#3D0C20"
                   />
                 </g>
-                <g id="forearm-group">
+                {/* origin-[48%_93%] animate-lower-arm [animation-delay:100ms] */}
+                <g
+                  id="forearm-group"
+                  className="origin-[48%_93%] animate-lower-arm [animation-delay:100ms]"
+                >
                   <rect
                     id="forearm"
                     x={527}
@@ -127,6 +132,7 @@ export default function AboutMeSvg(props: SVGProps<SVGSVGElement>) {
                     fill="#DFC7A1"
                   />
                   <path
+                    className="origin-[36%_75%] animate-lower-arm [animation-delay:700ms] "
                     id="hand"
                     d="M696.158 1181.11C676.788 1290.6 639.5 1339.5 564.737 1319.57C512.838 1298.06 497.179 1276.14 466.592 1238.98L376.448 1187.98C346.992 1172.27 363.18 1153.55 382.101 1159.58C382.101 1159.58 468.32 1193.41 473.664 1192.82C479.007 1192.23 476.515 1188.79 478.342 1186.21L381.089 1101.45C354.013 1076.67 378.96 1051.57 401.367 1064.67L512.8 1137.02L522.819 1135.92L431.291 1029.53C412.75 1002.46 432.351 984.04 457.352 1002.27C489.735 1042.44 516.058 1060.12 548.443 1092.45C554.181 1091.82 559.277 1092.61 563.138 1090.83C547.189 1074.98 513.158 1005.59 513.158 1005.59C499.072 975.993 519.19 962.258 552.57 995.144C552.57 995.144 621.398 1094.9 632.743 1102.78C644.089 1110.66 647.089 1116.99 655.82 1109.71C666.984 1102.1 672.122 1080.27 675.293 1047.29C681.464 1023.58 702.695 1026.52 710.839 1050.81C710.839 1050.81 717.975 1089.24 711.848 1115.04L696.158 1181.11Z"
                     fill="#DFC7A1"
