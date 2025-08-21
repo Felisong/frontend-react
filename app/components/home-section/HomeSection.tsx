@@ -3,7 +3,7 @@ import useSkills from "@/app/hook/useSkills";
 import SkillsCarousel from "./skills/SkillsCarousel";
 import { PriorWorksModel } from "../../../types";
 import WorkCard from "./WorkCard";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function HomeSection({
   works,

@@ -26,8 +26,10 @@ export default function RootLayout({
         <ToastProvider>
           <ToastWrapper />
           <NavigationBar></NavigationBar>
-          {children}
-          <ScrollUpButton />
+          <div className="min-h-[60vh]">
+            {children}
+            <ScrollUpButton />
+          </div>
           <Footer />
         </ToastProvider>
       </body>
