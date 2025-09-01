@@ -36,7 +36,7 @@ export default function WorkDetailPage({
 
   // returns
   if (loading) return <p>Loading...</p>;
-  if (!currentWork) return <p>Project not found, rerouting to home...</p>;
+  if (!currentWork) return <p>Page not found, rerouting to home...</p>;
   return (
     <article className="grid grid-cols-1 auto-rows-auto md:grid-cols-2">
       <h1 className="font-header text-center mx-8 my-8 md:col-span-2">

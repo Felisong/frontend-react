@@ -15,7 +15,6 @@ export default function WorkCard({ work }: { work: PriorWorksModel }) {
   const handleMouseLeave = () => {
     setSkillsDisplayed(false);
   };
-  console.log(`work: `, work);
   return (
     <article className="pt-16 rounded-full h-fit transition w-full">
       <div
