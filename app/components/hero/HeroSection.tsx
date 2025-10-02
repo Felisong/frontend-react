@@ -34,12 +34,6 @@ export default function HeroSection() {
   const opacity = 0.6 + cycleVal * 0.4;
   return (
     <div className="relative">
-      <div
-        className={`absolute top-[20%] left-8 ease-in-out transition-all`}
-        style={{ transform: `scale(${scale})`, opacity: opacity }}
-      >
-        <StarSparkle />
-      </div>
       <h1 className="font-header text-center mx-8 my-4 2xl:text-5xl 2xl:my-16">
         I am Carolina Henriquez Silva!
       </h1>
