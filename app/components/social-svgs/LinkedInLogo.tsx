@@ -12,7 +12,10 @@ export default function LinkedInLogo({
   className?: string;
 }) {
   return (
-    <Link href="wwww.linkedin.com/in/carolina-henriquez-silva">
+    <Link
+      href="https://www.linkedin.com/in/carolina-henriquez-silva"
+      target="_blank"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={width}
