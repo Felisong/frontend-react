@@ -13,6 +13,7 @@ export default function LinkedInLogo({
 }) {
   return (
     <Link
+      className="active:fill-white"
       href="https://www.linkedin.com/in/carolina-henriquez-silva"
       target="_blank"
     >

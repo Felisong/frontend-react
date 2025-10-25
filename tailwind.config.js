@@ -1,8 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-const rotation = () => {
-  return Math.floor(Math.random() * (35 - 25) + 25);
-};
 // add animations here!
 export default {
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
