@@ -16,7 +16,7 @@ export default function HomeSection({
   const [keyInputSlide, setKeyInputSlide] = useState<number>(0);
   const filtered = works.filter(
     (work: PriorWorksModel) =>
-      work.title !== "Portfolio Site" && work.title !== "Travel Blog"
+      work.title !== "Portfolio Site" && work.title !== "Travel Blog" && work.title !== 'The Golden Wheat'
   );
   // This will be so you can use your keyboard to navigate
   useEffect(() => {
