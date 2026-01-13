@@ -18,7 +18,6 @@ export default function HomeSection({
     (work: PriorWorksModel) =>
       work.title !== "Portfolio Site" && work.title !== "Travel Blog" && work.title !== 'The Golden Wheat'
   );
-  //oh meow
   // This will be so you can use your keyboard to navigate
   useEffect(() => {
     const handleChange = (e: KeyboardEvent) => {
